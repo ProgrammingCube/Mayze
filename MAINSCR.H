@@ -27,5 +27,13 @@ mainScreen()
      printf("                       `--`---\'        \\  \' ;               `----\'\n");
      printf("                                        `--`\n");
      textmode(RESET);
+     printf("\n                                  Press enter!\n");
+     while (kbhit() != 0x0D)
+     {
+          ran();
+     }
+     textcolor(LGREEN);
+     printf("\n                               Generating maze...\n");
+     textmode(RESET);
 }
-#endif
+#endif
