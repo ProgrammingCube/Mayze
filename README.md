@@ -11,7 +11,7 @@ In order to compile the program, you must copy all source files over to your CP/
 
 `C:as maze`
 
-`C:ln maze.o C:m.lib Cc.lib`
+`C:ln maze.o C:m.lib C:c.lib`
 
 ## Playing
 
