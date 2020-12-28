@@ -184,6 +184,12 @@ main()
           }
           if ((player.x == (WIDTH - 2)) && (player.y == HEIGHT - 1))
           {
+               gotoxy(player.px + 2, player.py + 3);
+               putchar(' ');
+               gotoxy(player.x + 2, player.y + 3);
+               textcolor(YELLOW);
+               putchar(player.state);
+               textmode(RESET);
                gotoxy(1,23);
                printf("You won!\n");
                getch();
