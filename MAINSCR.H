@@ -11,7 +11,9 @@ mainScreen()
      char a = 178;
      int i;
      clrscr();
+#if  ALTAIR == 0
      textcolor(LRED);
+#endif
      printf("\n                  ____\n");
      printf("                ,\'  , `.\n");
      printf("             ,-+-,.\' _ |                            ,---- ,\n");
@@ -32,7 +34,9 @@ mainScreen()
      {
           ran();
      }
+#if  ALTAIR == 0
      textcolor(LGREEN);
+#endif
      printf("\n                               Generating maze...\n");
      textmode(RESET);
 }

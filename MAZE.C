@@ -9,11 +9,12 @@
 
 extern double ran();  /* "random" number generator
                          use this to get random list */
+#define   ALTAIR     0
+#define   DEBUG      0
+
 #include "CONIO.H"
 #include "MAINSCR.H"
 #include "PERFMAZ.H"
-
-#define   DEBUG      0
 
 #define   WIDTH     77
 #define   HEIGHT    19
@@ -96,9 +97,13 @@ char *maze;
 printMessage()
 {
      printf("  Welcome to ");
+#if  ALTAIR == 0
      textcolor(LRED);
+#endif
      printf("Mayze");
+#if  ALTAIR == 0
      textmode(RESET);
+#endif
      printf("!\n\n");
 }
 
@@ -126,7 +131,6 @@ main()
           user[i] = 0;
 
      mainScreen();
-     /* genMaze(maze); */
      genMaze(maze);
      printf("\nGenerating maze...\n");
      clrscr();
@@ -147,7 +151,9 @@ main()
      for(;;)
      {
           gotoxy(2 + player.x, 3 + player.y);
+#if  ALTAIR == 0
           textcolor(YELLOW);
+#endif
           putchar(player.state);
           textmode(RESET);
           user[0] = getch();
@@ -189,9 +195,13 @@ main()
                gotoxy(player.px + 2, player.py + 3);
                putchar(' ');
                gotoxy(player.x + 2, player.y + 3);
+#if  ALTAIR == 0
                textcolor(YELLOW);
+#endif
                putchar(player.state);
+#if  ALTAIR == 0
                textmode(RESET);
+#endif
                gotoxy(1,23);
                printf("You won!\n");
                getch();
