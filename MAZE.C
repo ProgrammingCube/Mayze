@@ -38,6 +38,61 @@ char *maze;
      }
 }
 
+carveMaze(maze, x, y)
+char *maze;
+int x;
+int y;
+{
+     int x1, y1, x2, y2, dx, dy;
+
+     int dir = (int)(ran() * 10000) % 4;
+     int count = 0;
+     while(count < 4)
+     {
+          dx = 0; dy = 0;
+          switch(dir)
+          {
+               case 0:  dx = 1;  break;
+               case 1:  dy = 1;  break;
+               case 2:  dx = -1; break;
+               default: dy = -1; break;
+          }
+          x1 = x + dx;
+          y1 = y + dy;
+          x2 = x1 + dx;
+          y2 = y1 + dy;
+          if(x2 > 0 && x2 < WIDTH && y2 > 0 && y2 < HEIGHT
+             && maze[y1 * WIDTH + x1] == 1 && maze[y2 * WIDTH + x2] == 1)
+          {
+               maze[y1 * WIDTH + x1] = 0;
+               maze[y2 * WIDTH + x2] = 0;
+               x = x2; y = y2;
+               dir = (int)(ran() * 10000) % 4;
+               count = 0;
+          }
+          else
+          {
+               dir = (dir + 1) % 4;
+               count += 1;
+          }
+     }
+}
+
+genMaze(maze)
+char *maze;
+{
+     int x, y;
+     /* initialize maze */
+     for (x = 0; x < WIDTH * HEIGHT; x++)
+          maze[x] = 1;
+     maze[1 * WIDTH + 1] = 0;
+     for (y = 1; y < HEIGHT; y += 2)
+          for (x = 1; x < WIDTH; x += 2)
+               carveMaze(maze, x, y);
+     maze[0 * WIDTH + 1] = 0;
+     maze[(HEIGHT - 1) * WIDTH + (WIDTH - 2)] = 0;
+}
+
 printMessage()
 {
      printf("  Welcome to ");
