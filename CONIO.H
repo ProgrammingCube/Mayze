@@ -3,6 +3,11 @@
    of MS-DOS TurboC CONIO.H
    This version is specifically formatted
    for use with the Aztec C 1.06d Compiler
+
+   This version has Turbo C functions, so
+   games I make using this may NOT work
+   out-of-the-box with your version of
+   conio.h
 */
 #ifndef CONIO_H
 #define CONIO_H
