@@ -157,7 +157,8 @@ main()
           putchar(player.state);
           textmode(RESET);
           user[0] = getch();
-          if (user[0] == ESC);
+#if ALTAIR == 0
+          if (user[0] == ESC)
           {
                user[1] = kbhit();
                if (user[1] == 0)  /* ESC key pressed */
@@ -181,6 +182,24 @@ main()
                     }
                }
           }
+#else
+          if (user[0] == ESC)
+               break;
+          gotoxy(player.x + 2, player.y + 3);
+          putchar(' ');
+          switch(user[0])
+          {
+             case 56: player.py = player.y;
+                      player.px = player.x; player.y -= 1; break;
+             case 50: player.py = player.y;
+                      player.px = player.x; player.y += 1; break;
+             case 54: player.py = player.y;
+                      player.px = player.x; player.x += 1; break;
+             case 52: player.py = player.y;
+                      player.px = player.x; player.x -= 1; break;
+             default: break;
+          }
+#endif
           for (i = 0; i < 3; i++)
                user[i] = 0;
           /* Movement check */
