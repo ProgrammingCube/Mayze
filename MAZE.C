@@ -226,10 +226,6 @@ main()
                getch();
                break;
           }
-/*
-          gotoxy(1,23);
-          printf("X: %d; Y: %d\n", player.x, player.y);
-*/
 #if  DEBUG == 1
           gotoxy(1,23);
           printf("%d\n", maze[player.y][player.x]);
