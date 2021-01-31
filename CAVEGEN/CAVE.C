@@ -31,7 +31,7 @@ char *maze;
     do
     {
         /* move 1 tile */
-	i = (int)ran() % 8;
+	i = (int)(ran() * 1000) % 8;
         switch(i)
         {
             case 0: traveler.px = traveler.x; traveler.x++; break;  /* right */
@@ -54,7 +54,7 @@ char *maze;
         if (traveler.x == WIDTH - 2 || traveler.y == HEIGHT - 2 ||
             traveler.x == 1 || traveler.y == 1)
         {
-	    i = (int)ran() % 3;
+	    i = (int)(ran() * 1000) % 3;
             if (i == 0)
             {
                 traveler.px = traveler.x = WIDTH  / 2;
