@@ -26,3 +26,10 @@ Simply run the game by runing `MAZE`. It is ideal to wait until *after* the `Pre
 Arrow keys are used for navigation, ESC is used to exit.
 
 Right now, the game only generates perfect mazes 77x19 characters in size. It is possible to change the size by changing the `HEIGHT` and `WIDTH` #defines in `maze.c`
+
+# CAVEGEN
+
+This is a dungeon cave generator written in C. It contains my own algorithm, but its fairly simple. Basically it fills the map with wall tiles, then places a floor tile in the center. Then, for `k` iterations, it spreads floor tiles out in a random walk. If it comes upon a map boundary, it has a 1/3 chance of moving back to the center and running again, or a 2/3 chance of backing up to the previous tile and going again.
+
+## Compiling
+This program compiles pretty much the same way as `maze.c`. It does need `CONIO.H` in its drive though. An interesting note is that the Aztec C compiler isn't very optimized for functions that it doesn't use, so it compiles and includes the ENTIRE conio.h instead of just the kbhit() it uses.
