@@ -51,8 +51,8 @@ char *maze;
         if (maze[traveler.y * WIDTH + traveler.x] == '#')
             maze[traveler.y * WIDTH + traveler.x] = '.';
 
-        if (traveler.x == WIDTH - 1 || traveler.y == HEIGHT - 1 ||
-            traveler.x == 0 || traveler.y == 0)
+        if (traveler.x == WIDTH - 2 || traveler.y == HEIGHT - 2 ||
+            traveler.x == 1 || traveler.y == 1)
         {
 			i = (int)ran() % 3;
             if (i == 0)
