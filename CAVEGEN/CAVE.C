@@ -31,7 +31,7 @@ char *maze;
     do
     {
         /* move 1 tile */
-		i = (int)ran() % 8;
+	i = (int)ran() % 8;
         switch(i)
         {
             case 0: traveler.px = traveler.x; traveler.x++; break;  /* right */
@@ -54,7 +54,7 @@ char *maze;
         if (traveler.x == WIDTH - 2 || traveler.y == HEIGHT - 2 ||
             traveler.x == 1 || traveler.y == 1)
         {
-			i = (int)ran() % 3;
+	    i = (int)ran() % 3;
             if (i == 0)
             {
                 traveler.px = traveler.x = WIDTH  / 2;
@@ -86,23 +86,23 @@ char *maze;
 
 void main()
 {
-	int i, j;
+    int i, j;
     char maze[HEIGHT][WIDTH];
-	for (i = 0; i < HEIGHT; i++)
+    for (i = 0; i < HEIGHT; i++)
+    {
+        for (j = 0; j < WIDTH; j++)
 	{
-		for (j = 0; j < WIDTH; j++)
-		{
-			maze[i][j] = '#';
-		}
+	    maze[i][j] = '#';
 	}
+    }
 	
-	printf("Press Enter:\n");
-	while (kbhit() != 0x0D)
+    printf("Press Enter:\n");
+    while (kbhit() != 0x0D)
     {
         ran();
     }
 	
-	printf("\n");
+    printf("\n");
     genCave(maze);
 
     printMap(maze);
